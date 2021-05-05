@@ -14,7 +14,7 @@
                     <span slot="title">用户管理</span>
                     </template>
                     <el-menu-item index="1-1">用户列表</el-menu-item>
-                    <el-menu-item index="1-2">注销</el-menu-item>
+                    <el-menu-item index="1-2" @click="logout">注销</el-menu-item>
                 
                 </el-submenu>
                 <el-menu-item index="2">
@@ -45,7 +45,7 @@
   export default {
     data() {
       return {
-        isCollapse: true
+        isCollapse: false
       };
     },
     methods: {
@@ -54,6 +54,11 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      logout(){
+          localStorage.setItem("token","");
+          location.reload();
+          console.log("hello")
       }
     }
   }
@@ -65,10 +70,10 @@
     display: flex;
 }
 .layout menu {
-    width: 200px;
+    /* width: 500px; */
 }
 el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    /* width: 500px; */
     min-height: 400px;
 }
 </style>
