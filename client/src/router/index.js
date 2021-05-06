@@ -3,7 +3,12 @@ import VueRouter from 'vue-router'
 import Home from "../views/Home"
 import Layout from "../views/Layout"
 import Login from "../views/Login"
-
+import Book from "../views/Book"
+import Blog from "../views/Blog"
+import BlogDetail from "../components/BlogDetail"
+import Video from "../views/Video"
+import Resource from "../views/Resource"
+import User from "../views/User"
 
 Vue.use(VueRouter)
 
@@ -18,6 +23,30 @@ const routes = [
         name:'',
         component: Home
       },
+      {
+        path: "/book",
+        component: Book
+      },
+      {
+        path:"/blog",
+        component: Blog
+      },
+      {
+        path:"/createBlog",
+        component: BlogDetail
+      },
+      {
+        path:"/video",
+        component: Video
+      },
+      {
+        path:"/resource",
+        component:Resource
+      },
+      {
+        path:"/user",
+        component:User
+      }
       
     ]
   },

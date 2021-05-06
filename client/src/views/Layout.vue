@@ -7,29 +7,29 @@
                 <el-radio-button :label="false">展开</el-radio-button>
                 <el-radio-button :label="true">收起</el-radio-button>
             </el-radio-group>
-            <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+            <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" router>
                 <el-submenu index="1">
                     <template slot="title">
                     <i class="el-icon-location"></i>
                     <span slot="title">用户管理</span>
                     </template>
-                    <el-menu-item index="1-1">用户列表</el-menu-item>
-                    <el-menu-item index="1-2" @click="logout">注销</el-menu-item>
+                    <el-menu-item index="/user">用户列表</el-menu-item>
+                    <el-menu-item index="/login" @click="logout">注销</el-menu-item>
                 
                 </el-submenu>
-                <el-menu-item index="2">
+                <el-menu-item index="/book">
                     <i class="el-icon-menu"></i>
                     <span slot="title">书籍管理</span>
                 </el-menu-item>
-                <el-menu-item index="3" abled>
+                <el-menu-item index="/blog" abled>
                     <i class="el-icon-document"></i>
                     <span slot="title">博客管理</span>
                 </el-menu-item>
-                <el-menu-item index="4">
+                <el-menu-item index="/video">
                     <i class="el-icon-video-camera-solid"></i>
                     <span slot="title">视频管理</span>
                 </el-menu-item>
-                <el-menu-item index="5">
+                <el-menu-item index="/resource">
                     <i class="el-icon-setting"></i>
                     <span slot="title">资源列表</span>
                 </el-menu-item>
@@ -58,7 +58,7 @@
       logout(){
           localStorage.setItem("token","");
           location.reload();
-          console.log("hello")
+        //   console.log("hello")
       }
     }
   }
@@ -69,11 +69,22 @@
 .layout {
     display: flex;
 }
-.layout menu {
-    /* width: 500px; */
+.layout .menu {
+    width: 200px;
 }
-el-menu-vertical-demo:not(.el-menu--collapse) {
-    /* width: 500px; */
+.layout .container {
+    /* 确保容器占满，不然后面的表格不会占满容器 */
+    width: 100%; 
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
     min-height: 400px;
 }
+/* .layout .breadcrumb {
+    padding: 10px;
+}
+.layout a {
+    color: #000;
+    text-decoration: none;
+} */
 </style>
