@@ -9,6 +9,10 @@ import BlogDetail from "../components/BlogDetail"
 import Video from "../views/Video"
 import Resource from "../views/Resource"
 import User from "../views/User"
+import Chapter from "../components/Chapter"
+import Section from "../components/Section"
+import SectionDetail from "../components/SectionDetail"
+
 
 Vue.use(VueRouter)
 
@@ -28,8 +32,29 @@ const routes = [
         component: Book
       },
       {
+        path: "/chapter",
+        component: Chapter
+      },
+      {
+        path: "/section",
+        component: Section
+      },
+      {
+        path: "/section/:id",
+        component: SectionDetail
+      },
+      {
+        path:"/createSection",
+        component: SectionDetail
+      },
+
+      {
         path:"/blog",
         component: Blog
+      },
+      {
+        path:"/blog/:id",
+        component: BlogDetail
       },
       {
         path:"/createBlog",
