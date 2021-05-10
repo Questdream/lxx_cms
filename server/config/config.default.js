@@ -27,15 +27,15 @@ module.exports = appInfo => {
 
 
     config.jwt = {
-        secret: "xiaozhoubaogao"
+        secret: "lxx249"
     };
     config.sequelize = {
         dialect: 'mysql',
-        database: 'demo01',
+        database: 'lxx_cms',
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: 'aaaaaa',
+        password: 'liuxuxing00',
         timezone: '+08:00',
     }
 
