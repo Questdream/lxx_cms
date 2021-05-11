@@ -8,10 +8,12 @@
             <el-table-column
                 align="center"
                 label="序号"
+                type="index"
                 width="100">
             </el-table-column>
 
             <el-table-column
+                prop="img"
                 label="封面">
                 <template slot-scope="scope">
                     <img class="pic" :src="scope.row.img" alt />
@@ -19,6 +21,7 @@
             </el-table-column>
 
             <el-table-column
+                prop="title"
                 label="姓名">
             </el-table-column>
             
@@ -50,6 +53,8 @@
                 class="upload-demo"
                 drag
                 :action="getUpUrl()"
+                :file-list="fileList"
+                :on-success="handleSuccess"
                 multiple>
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -86,6 +91,7 @@ export default {
             isEdit: false,
             updateId: 0,
             img: "",
+            fileList: [],
             video_url: ""
         }
     },
@@ -95,13 +101,20 @@ export default {
     methods: {
         // 从后台获取页面展示情况
         getVideoList(){
-            request.get(`/video`).then((res) => {
+            request.get(`/video?page=1&total=10`).then((res) => {
                 this.videoList = res.data.data;
+                console.log(res.data)
             })
         },
         // 上传图片的地址
         getUpUrl(){
             return process.env.VUE_APP_UPLOAD_API;
+        },
+        // 上传图片后返回图片路径
+        handleSuccess(response, file, fileList){
+            console.log(file);
+            console.log(fileList);
+            this.img = response.data.file;
         },
         // 添加新的视频
         createVideo(){
@@ -171,3 +184,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.video .pic {
+    width: 50px;
+    height: 50px;
+}
+</style>

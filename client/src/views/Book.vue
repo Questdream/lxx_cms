@@ -4,17 +4,21 @@
         <el-button type="danger" round @click="creatBook">添加书籍</el-button>
         <!-- 添加表格 -->
         <el-table
-        :data="tableData"
+        :data="bookList"
         border>
             <el-table-column
                 align="center"
                 label="序号"
+                type="index"
                 width="100">
             </el-table-column>
             <el-table-column
+                prop="img"
                 label="封面">
                 <!-- scope对象可以获得table的所有数据 -->
                 <template slot-scope="scope">
+                    <!-- <h1>hello</h1>
+                    <h1>{{scope.row.img}}</h1> -->
                     <img class="pic" :src = "scope.row.img" alt />
                 </template>
 
@@ -50,6 +54,8 @@
                 class="upload-demo"
                 drag
                 :action="getUploadUrl()"
+                :on-success="handSuccess"
+                :file-list="fileList"
                 multiple>
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -105,12 +111,19 @@ export default {
         },
         // 封装得到请求后台获得所有书籍列表
         getBookList(){
-            request.get(`/book`).then((res) => {
+            request.get(`/book?page=1&total=10`).then((res) => {
                 this.bookList = res.data.data;
+                console.log(res.data)
             })
         },
         getUploadUrl(){
             return process.env.VUE_APP_UPLOAD_API
+        },
+        // 图片上传成功的钩子函数
+        handSuccess(res, file, fileList){
+            console.log(file);
+            console.log(fileList);
+            this.img = res.data.file;
         },
         updateBook(row){
             // 通过scope可以获得这一行的所有table数据
@@ -168,3 +181,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.book .pic {
+    width: 50px;
+    height: 50px;
+}
+</style>

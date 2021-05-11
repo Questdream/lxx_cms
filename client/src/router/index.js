@@ -82,10 +82,25 @@ const routes = [
   }
 ]
 
+
+
+
 const router = new VueRouter({
   mode: 'history',   //模式  history hash ，
   base: process.env.BASE_URL, //定义一个基础URL，用的是vue-cli默认的配置项。
   routes  //配置项
+})
+
+router.beforeEach((to,from,next) => {
+  if(to.path == '/login'){
+    next();
+  }else{
+    if(localStorage.getItem("token")){
+      next();
+    }else{
+      next("/login")
+    }
+  }
 })
 
 export default router

@@ -31,7 +31,7 @@ module.exports = appInfo => {
     };
     config.sequelize = {
         dialect: 'mysql',
-        database: 'lxx_cms',
+        database: 'my_cms',
         host: 'localhost',
         port: 3306,
         username: 'root',

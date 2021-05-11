@@ -9,18 +9,20 @@
             <el-table-column
                 align="center"
                 label="序号"
+                prop="id"
                 width="100">
             </el-table-column>
             <el-table-column
                 label="姓名"
+                prop="title"
                 >
             </el-table-column>
             <el-table-column
-                prop="name"
+                prop="code"
                 label="提取码">
             </el-table-column>
             <el-table-column
-                prop="address"
+                prop="url"
                 label="下载地址"
                 width="100">
             </el-table-column>
@@ -75,8 +77,9 @@ export default {
     },
     methods: {
         getResourceList(){
-            request.get(`/resource`).then((res) => {
+            request.get(`/resource?page=1&total=10`).then((res) => {
                 this.resourceList = res.data.data;
+                console.log(res.data)
             })
         },
         creatResource(){

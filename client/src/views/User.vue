@@ -9,10 +9,11 @@
             <el-table-column
                 align="center"
                 label="序号"
+                prop="id"
                 width="100">
             </el-table-column>
             <el-table-column
-                prop="name"
+                prop="username"
                 label="管理员">
             </el-table-column>
             <el-table-column
@@ -26,7 +27,7 @@
         </el-table>
         <!-- 添加管理员的对话框 -->
         <el-dialog title="添加管理员" :visible.sync="dialogFormVisible" width="30%">
-            <el-form :model="form">
+            <el-form>
                 <el-form-item label="用户名">
                 <el-input v-model="form.username" :disabled="canBeEdited"></el-input>
                 </el-form-item>
@@ -67,6 +68,7 @@ export default {
         },
         getUserList(){
             request.get(`/user`).then( res => {
+                console.log(res.data)
                 this.userList = res.data.data;
             })
         },

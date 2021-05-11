@@ -6,15 +6,21 @@
         :data="blogList"
         border>
             <el-table-column
+                type="index"
                 align="center"
                 label="序号"
                 width="100">
             </el-table-column>
             <el-table-column
-                label="封面"
-                >
+                prop="img"
+                label="封面">
+                <template slot-scope="scope">
+                    <!-- <h1>{{scope.row.img}}</h1> -->
+                    <img class="pic" :src="scope.row.img" alt="">
+                </template>
             </el-table-column>
             <el-table-column
+                prop="title"
                 label="标题"
                 >
             </el-table-column>
@@ -46,8 +52,9 @@ export default {
     },
     methods: {
         getBlogList(){
-            request.get("/blog").then((res) => {
+            request.get("/blog?page=1&total=10").then((res) => {
                 this.blogList = res.data.data;
+                console.log(this.blogList)
             })
         },
         // 创建博客
@@ -82,3 +89,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.blog .pic {
+    width: 50px;
+    height: 50px;
+}
+</style>

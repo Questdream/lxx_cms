@@ -7,7 +7,12 @@ class HomeController extends Controller {
     const { ctx } = this;
     // ctx.body = 'hi, egg';
     const ua = checkagent(ctx.request.header["user-agent"]);
-    let data = await this.ctx
+    let data = await this.ctx.service.website.getHomePageData();
+    if(ua){
+      await ctx.render("pc/home.html", data)
+    }else{
+      await ctx.render("phone/home.html", data)
+    }
   }
 }
 

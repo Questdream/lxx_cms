@@ -6,6 +6,8 @@
                 class="upload-demo"
                 drag
                 :action="getUploadUrl()"
+                :on-success="handleSucess"
+                :file-list="file"
                 multiple>
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -35,6 +37,7 @@ export default {
             html_text: "",
             img: "",
             title: "",
+            file: []
        }
    },
    computed: {
@@ -61,6 +64,11 @@ export default {
    methods: {
        getUploadUrl(){
            return process.env.VUE_APP_UPLOAD_API;
+       },
+       handleSucess(res, file, fileList){
+           console.log(file);
+           console.log(fileList);
+           this.img = res.data.file;
        },
        save(){
            if(this.id){
