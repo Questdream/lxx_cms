@@ -22,6 +22,7 @@
                 label="详情"
                 width="100">
                 <template slot-scope="scope">
+                    <h1>{{scope.row.id}}</h1>
                     <el-button @click="getDetail(scope.row.id)" type="text" size="small">查看章</el-button>
                 </template>
             </el-table-column>
