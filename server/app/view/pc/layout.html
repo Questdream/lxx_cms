@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <meta name="description" content="星星报告是程序员学习教程, 内容涵盖WEB前端、java、python、Golang、PHP等学习内容， 内容形式包括学习资料、学习文档、学习方法、就业指导等，通过全面的学习内容，为新手程序员打下坚实的理论基础。">
+    <meta name="keywords" content="前端开发,javascript,php,node,jquery,git,python,java,sql,mysql,linux,go语言,golang,前端,教程,软件,编程,互联网,星星报告">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/swiper.min.css">
+    <!-- 注意直接使用/ 来表示当前路径，不要使用./ -->
+    <!-- 总结：如果是某个文件夹里的文件，则直接使用/
+                如果直接是某个文件，则使用./ -->
+    <link rel="stylesheet" href="/css/pc/layout.css">
+    <link rel="stylesheet" href="/css/pc/pc_common.css">
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+    <div class="long">
+        <div class="header">
+            <div class="title">
+                <a href="/"><img src="/img/pc/logo.jpg" alt=""></a>
+            </div>
+            <ul class="meun">
+                <li>
+                    <a href="/" class="a"><span class="word">首页</span></a>
+                </li>
+                <li>
+                    <a href="/book" class="a"><span class="word">学习手册</span></a>
+                </li>
+                <li>
+                    <a href="/blog" class="a"><span class="word">技术博客</span></a>
+                </li>
+                <li>
+                    <a href="/video" class="a"><span class="word">教学视频</span></a>
+                </li>
+                <li>
+                    <a href="/resource" class="a"><span class="word">资源下载</span></a>
+                </li>
+            </ul>
+            <form class="search" action="/search">
+                <input type="text" placeholder="搜索" name="searchkey">
+                <button>
+                    S
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hyperlink">
+        <div class="Code">
+            <img src="/img/pc/xx.jpg" alt="weixin">
+            <p style="font-size: 12px; text-align: center;">添加星星个人微信</p>
+        </div>
+        <div class="CodeTeam">
+            <img src="/img/pc/xx.jpg" alt="weixin">
+            <p style="font-size: 12px; text-align: center;">关注星星报告公众号</p>
+        </div>
+        <ul>
+            <li class="user">
+                <img src="/img/pc/联系人.png" alt="" 
+                onmouseover="this.src='/img/pc/联系人bu.png'"
+                onmouseout="this.src='/img/pc/联系人.png'">
+            </li>
+            <li class="codeUser">
+                <img src="/img/pc/微信.png" alt=""
+                onmouseover="this.src='/img/pc/微信bu.png'"
+                onmouseout="this.src='/img/pc/微信.png'">
+            </li>
+            <li class="toTop">
+                <img src="/img/pc/返回顶部.png" alt=""
+                onmouseover="this.src='/img/pc/返回bu.png'"
+                onmouseout="this.src='/img/pc/返回顶部.png'">
+            </li>
+        </ul>
+    </div>
+
+    {% block content %} {% endblock %} 
+    <!-- {% block js %} {% endblock %} -->
+
+    <script src="/js/pc/jquery-2.1.1.min.js"></script>
+    <script src="/js/phone/bootstrap.min.js"></script>
+    <script src="/js/swiper.min.js"></script>
+    <script>
+        // 移入移出hover方法来控制标签的隐藏和可见
+        $(".user").hover(
+            function (){
+                $(".Code").show();
+        }, function (){
+            $(".Code").hide();
+        });
+
+        $(".codeUser").hover(function (){
+            $(".CodeTeam").show();
+        }, function (){
+            $(".CodeTeam").hide();
+        });
+
+        // 返回顶部
+        $(".toTop").click(function (){
+            $("html,body").animate({
+                "scrollTop": "0px"
+            },200)
+        })
+
+
+
+
+        let path = "";
+        if (location.pathname.indexOf("/docs") > -1) {
+            path = "/book"
+        } else if (location.pathname.indexOf("/details") > -1) {
+            path = "/book"
+        } else if (location.pathname.indexOf("/blog") > -1) {
+            path = "/blog"
+        } else if (location.pathname.indexOf("/video") > -1) {
+            path = "/videos"
+        } else if (location.pathname.indexOf("/videosmenu") > -1) {
+            path = "/videosmenu"
+        } else {
+            path = location.pathname;
+        }
+
+
+        console.log(path);
+        switch (path){
+            case "/":
+                setLine(0);
+                break;
+            case "/book":
+                setLine(1);
+                break;
+            case "/blog":
+                setLine(2);
+                break;
+            case "/videos":
+                setLine(3);
+                break;
+            case "/resources":
+                setLine(4);
+                break;
+        }
+
+        function setLine(index){
+            $(".meun li").eq(index).addClass("active");
+        }
+    </script>
+
+</body>
+</html>

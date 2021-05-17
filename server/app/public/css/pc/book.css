@@ -1,0 +1,85 @@
+.content {
+    max-width: 1260px;
+    min-width: 1260px;
+    background-color: blanchedalmond;
+    margin: 0 auto;
+}
+
+.bigbox {
+    width: 955px;
+    min-height: 650px;
+    margin-right: 15px;
+    float: left;
+}
+
+.box {
+    width: 955px;
+    min-height: 505px;
+    padding-bottom: 15px;
+    float: left;
+    margin-top: 15px;
+    background-color: blanchedalmond;
+}
+
+.box .box-top {
+    width: 955px;
+    height: 300px;
+}
+
+.box .box-top .readgo {
+    color: #7cb4ff;
+    text-decoration: none;
+}
+
+.box .box-top ul {
+    list-style: none;
+}
+
+.box .box-top ul li {
+    width: 935px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.box .box-top ul li img {
+    float: left;
+    width: 230px;
+    height: 150px;
+}
+
+.box .box-top ul li div {
+    width: 655px;
+    height: 150px;
+    float: right;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.box .box-top ul li div .bookname {
+    color: black;
+    font-size: 17px;
+    margin-top: 10px;
+    display: block;
+}
+
+.box .box-top ul li div .read {
+    display: block;
+    background-color: rgb(20, 228, 218);
+    border: none;
+    width: 90px;
+    color: white;
+    height: 40px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.footer {
+    width: 955px;
+    height: 50px;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 51px;
+    background-color: #ffffff;
+    float: left;
+}

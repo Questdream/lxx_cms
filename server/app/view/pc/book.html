@@ -1,0 +1,29 @@
+{% extends "pc/layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="/css/pc/book.css">
+<div class="content">
+    <div class="bigbox">
+        <div class="box">
+            <div class="box-top">
+                <ul>
+                    {% for book in bookList %}
+                    <a href="/section/{{book.id}}" class="readgo"></a>
+                        <li>
+                            <img src="{{book.img}}" alt="封面图">
+                            <div>
+                                <span class="bookname">{{book.title}}</span>
+                                <button class="read">阅读</button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="footer">更多精彩内容敬请期待</div>
+    </div>
+    <div class="slider">
+        {% include "./slider.html" ignore missing %}
+    </div>
+</div>
+
+{% endblock %}

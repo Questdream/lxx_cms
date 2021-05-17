@@ -1,1 +1,67 @@
-<h1>hello home</h1>
+{% extends "pc/layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="/css/pc/home.css">
+
+<div class="content">
+    <!-- 主要内容 -->
+    <div class="data">
+        <!-- 手册部分 -->
+        <h2 class="title">精选手册</h2>
+        <!-- 精选手册列表 -->
+        <div class="clear" id="reco_list">
+            {% for item in bookList %}
+            <a href="/book/{{item.id}}" class="jump">
+                <div class="picture"><img class="pic" src="{{item.img}}" alt=""></div>
+                <div class="introduce">
+                    <h3 class="bookname">{{item.title}}</h3>
+                    <p class="bookoutline">{{item.createdAt | dateformate }}</p>
+                    <button class="enter">阅读</button>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- 博客部分 -->
+        <h2 class="title">精选手册</h2>
+        <!-- 精选手册列表 -->
+        <div class="clear" id="reco_list">
+            {% for item in blogList %}
+            <a href="/blog/{{item.id}}" class="jump">
+                <div class="picture"><img class="pic" src="{{item.img}}" alt=""></div>
+                <div class="introduce">
+                    <h3 class="blogname">{{item.title}}</h3>
+                    <p class="blogoutline">{{item.createdAt | dateformate}}</p>
+                    <!-- <button class="enter">阅读</button> -->
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- 视频部分 -->
+        <h2 class="title">精选视频</h2>
+        <!-- 精选手册列表 -->
+        <div class="clear" id="reco_list">
+            {% for item in videoList %}
+            <a href="/video/{{item.id}}" class="jump">
+                <div class="picture"><img class="pic" src="{{item.img}}" alt=""></div>
+                <div class="introduce">
+                    <h3 class="videoname">{{item.title}}</h3>
+                    <p class="videooutline">{{item.createdAt | dateformate}}</p>
+                    <button class="enter">观看</button>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <!-- 最后的页脚 -->
+        <div class="footer">©2019 冀ICP备 18023262号-4</div>
+
+    </div>
+    <!-- 侧栏内容 -->
+    <div class="slider">
+        {% include "./slider.html" ignore missing %}
+    </div>
+</div>
+
+<script src="/js/pc/jquery.js"></script>
+<script src="/js/pc/lunbo.js"></script>
+{% endblock %}

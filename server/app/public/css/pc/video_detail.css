@@ -1,0 +1,131 @@
+/* 重写layout样式 */
+.long .header {
+    max-width: 1660px;
+}
+
+ul {
+    margin-left: 0px;
+}
+
+.bast {
+    background-color: #f6f6f6;
+    width: 100%;
+    position: relative;
+}
+
+.content {
+    max-width: 1660px;
+    min-width: 1260px;
+    background-color: #f6f6f6;
+    margin: 0 auto;
+    display: flex;
+}
+
+.bigbox {
+    width: 100%;
+    margin-right: 15px;
+    min-height: 1150px;
+}
+
+.box {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.box .videolist {
+    list-style: none;
+    overflow: hidden;
+}
+
+.box .videolist .title {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.box .videolist .video {
+    margin-top: 30px;
+    height: 720px;
+    background-color: #333333;
+    text-align: center;
+}
+
+.box .videolist .video iframe{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    height:100%;
+    width: 100%;
+}
+
+.video_slider {
+    width: 290px;
+}
+
+.list {
+    width: 290px;
+    height: 472;
+    margin-top: 15px;
+}
+
+.list .open {
+     width: 290px;
+     height: 50px;
+     background-color: #0084ff;
+     margin-bottom: 10px;
+     float: left;
+     text-align: center;
+     line-height: 50px;
+     text-decoration: none;
+     font-family: 微软雅黑;
+     font-size: 18px;
+     color: #fff;
+}
+
+.list div {
+    background-color: #ffffff;
+    width: 290px;
+    height: 412px;
+    float: left;
+}
+
+.list div .anthology {
+    margin-top: 14px;
+    margin-bottom: 6px;
+    margin-left: 23px;
+    font-family: 微软雅黑;
+    font-size: 18px;
+    float: left;
+}
+
+.list ul {
+    list-style: none;
+    background-color: #ffffff;
+    width: 290px;
+    height: 369px;
+    float: left;
+    overflow: scroll;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
+}
+
+.list ul .videonumber {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.list ul .videonumber a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #a7a7a7;
+    margin-left: 23px;
+}
+
+/* .footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+} */
